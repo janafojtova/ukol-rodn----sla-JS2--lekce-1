@@ -10,12 +10,11 @@ const isDigit = (cislo) =>{
         return false
     }
 }
-console.log(isDigit('1'));
-console.log(isDigit('33'));
 
 
 
-//document.write(pole.toString());
+
+
 const rodneCisloOdUzivatelePole = rodneCisloOdUzivatele.split("");
 const logInvalidCharacter = (rodneCisloOdUzivatelePole)=>{
     rodneCisloOdUzivatelePole.forEach( znak=> {
@@ -44,6 +43,10 @@ console.log(validateCharacters(rodneCisloOdUzivatelePole));
 const formElm = document.querySelector('#kontrolaRodnehoCisla');
 formElm.addEventListener('submit', (event)=>{
      event.preventDefault();
+
+     const kontrolaZnaku = document.querySelector('#vypisRodnehoCisla');
+     kontrolaZnaku.innerHTML = '';
+
      const rodneCislo = document.querySelector('#rodneCislo').value;
      const vyhodnoceni = document.querySelector('#vyhodnoceni');
       
@@ -51,21 +54,20 @@ formElm.addEventListener('submit', (event)=>{
         vyhodnoceni.innerHTML= 'V pořádku'
      }else{
         vyhodnoceni.innerHTML= 'V rodném číslu je chyba'
-     };
-    
-     const kontrolaZnaku = document.querySelector('#vypisRodnehoCisla')
-     const rodneCisloZFormulare = rodneCislo.split("");
-     const pole = validateCharacters(rodneCisloZFormulare);
-     console.log(pole)
-    
-    // pole.forEach( znak=> {
-    //  kontrolaZnaku.innerHTML+=`<div>${znak}</div>`;
-    //  if(isDigit(znak)){            
-    //      kontrolaZnaku.classList.add('platnaCislice')
-    //  } else{
-    //      kontrolaZnaku.classList.add('neplatnaCislice')
-    //  } 
-    // })
+     };    
+
+     const rodneCisloZFormulare = rodneCislo.split("");     
+
+     rodneCisloZFormulare.forEach( znak=> {
+         if(isDigit(znak)){
+            kontrolaZnaku.innerHTML+=`<div>${znak}</div>`;
+            kontrolaZnaku.classList.add('platnaCislice')
+         }else{
+            kontrolaZnaku.innerHTML+=`<div>${znak}</div>`;  
+            kontrolaZnaku.classList.add('neplatnaCislice')    
+         }
+     
+    });    
 })
 
 
