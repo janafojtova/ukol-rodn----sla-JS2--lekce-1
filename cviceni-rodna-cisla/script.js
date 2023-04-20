@@ -60,11 +60,13 @@ formElm.addEventListener('submit', (event)=>{
 
      rodneCisloZFormulare.forEach( znak=> {
          if(isDigit(znak)){
-            kontrolaZnaku.innerHTML+=`<div>${znak}</div>`;
-            kontrolaZnaku.classList.add('platnaCislice')
+            //kontrolaZnaku.innerHTML+=`<div>${znak}</div>`;            
+            //kontrolaZnaku.classList.add('platnaCislice')
+            kontrolaZnaku.innerHTML+=`<span class="platnaCislice">${znak}</span>`;
          }else{
-            kontrolaZnaku.innerHTML+=`<div>${znak}</div>`;  
-            kontrolaZnaku.classList.add('neplatnaCislice')    
+            //kontrolaZnaku.innerHTML+=`<div>${znak}</div>`;  
+            //kontrolaZnaku.classList.add('neplatnaCislice')  
+            kontrolaZnaku.innerHTML+=`<span class="neplatnaCislice">${znak}</span>`; 
          }
      
     });    
